@@ -26,15 +26,36 @@ const imoveis = {
         preco: "R$ 180/noite",
         hospedes: "Até 4 hóspedes",
         imagem: "imagens/casa3.jpg",
-        descricao: "Apartamento confortável no centro da cidade."
+        descricao: "Apartamento confortável no centro."
     }
 };
 
 const imovel = imoveis[id];
 
-document.getElementById("titulo").textContent = imovel.titulo;
-document.getElementById("cidade").textContent = imovel.cidade;
-document.getElementById("preco").textContent = imovel.preco;
-document.getElementById("hospedes").textContent = imovel.hospedes;
-document.getElementById("descricao").textContent = imovel.descricao;
-document.getElementById("imagem").src = imovel.imagem;
+if (imovel) {
+
+    document.title = `${imovel.titulo} - HospedaBem`;
+    document.getElementById("imagem").src = imovel.imagem;
+
+    document.getElementById("btnReserva").href =
+    `reserva.html?id=${id}`;
+
+    document.getElementById("titulo").textContent = imovel.titulo;
+    document.getElementById("cidade").textContent = imovel.cidade;
+    document.getElementById("preco").textContent = imovel.preco;
+    document.getElementById("hospedes").textContent = imovel.hospedes;
+    document.getElementById("descricao").textContent = imovel.descricao;
+    document.getElementById("imagem").src = imovel.imagem;
+
+} else {
+
+    document.body.innerHTML = `
+        <div class="container mt-5">
+            <h1>Imóvel não encontrado</h1>
+
+            <a href="cliente.html" class="btn btn-primary mt-3">
+                Voltar para a Home
+            </a>
+        </div>
+    `;
+}
