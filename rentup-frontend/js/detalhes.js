@@ -34,11 +34,10 @@ const imovel = imoveis[id];
 
 if (imovel) {
 
-    document.title = `${imovel.titulo} - HospedaBem`;
-    document.getElementById("imagem").src = imovel.imagem;
+   document.title = `${imovel.titulo} - HospedaBem`;
 
-    document.getElementById("btnReserva").href =
-    `reserva.html?id=${id}`;
+document.getElementById("btnReserva").href =
+`reserva.html?id=${id}`;
 
     document.getElementById("titulo").textContent = imovel.titulo;
     document.getElementById("cidade").textContent = imovel.cidade;
